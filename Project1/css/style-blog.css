@@ -1,0 +1,61 @@
+.container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 190px 1fr 50px;
+    grid-template-areas: "ph" "pb" "pf";
+}
+
+.page-heading {
+    grid-area: ph;
+}
+
+.article-body {
+    grid-area: pb;
+    padding: 0 10px;
+}
+
+.page-footer {
+    grid-area: pf;
+}
+
+h1, h2, h3, h6 {
+    font-family: "Acme", sans-serif;
+    font-size: 1.1em;
+}
+
+a {
+    font-size: 0.6em;
+    color: darkslategray;
+}
+
+p,blockquote {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+img {
+    border: 1.5px solid rgb(16, 148, 126);
+    border-radius: 5%;
+    box-shadow: 3px 2px 2px rgb(95, 92, 92);
+    padding: 5px;
+}
+
+figcaption {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+
+.article-header {
+    display: flex;
+}
+
+#auth-avatar {
+    width: 125px;
+    height: auto;
+}
+
+.author-info {
+    padding: 0 2px 0 10px;
+}

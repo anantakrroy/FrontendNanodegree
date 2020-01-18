@@ -1,0 +1,8 @@
+@import "./style-homepage.css";
+@import "./style-blog.css";
+@import "./style-responsive.css";
+
+body {
+    background-color: rgb(228, 204, 100);
+    overflow-x: hidden;  
+}

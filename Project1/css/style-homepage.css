@@ -1,0 +1,98 @@
+.home-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 190px 35px 1fr 50px;
+    grid-template-areas: "ph" "pm" "pb" "pf";
+}
+
+.page-heading {
+    display: flex;
+    color: white;
+    grid-area: ph;
+    padding: 20px 20px 0 20px;
+    background: left/cover url("./../images/cover.jpg");
+    border-radius: 10px;
+}
+
+.page-header {
+    grid-area: ph;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5em;
+    font-family: "Acme", sans-serif;
+    text-shadow: black 0 0 1.5em;
+}
+
+.caption {
+    font-size: 0.8em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    text-shadow: black 0 0 1.5em;
+    padding: 40px 0 0 0;
+}
+
+.page-menu {
+    grid-area: pm;
+    display: flex;
+    padding: 15px 0;
+}
+
+.page-name {
+    padding: 0;
+    margin: 10px 0;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+img {
+    width: 50%;
+    height: 75%;
+}
+
+.page-body {
+    grid-area: pb;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+
+.img-desc {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.page-menu>a {
+    padding: 0 15px;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+.page-name {
+    padding: 0 5%;
+    margin: 10px 0;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.7em;
+    font-weight: 300;
+}
+
+.page-footer {
+    display: inline-flex;
+    grid-area: pf;
+    margin: auto;
+}
+
+.footer-text {
+    padding: 0 40px;
+    font-size: 0.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: black;
+}
