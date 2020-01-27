@@ -19,33 +19,42 @@
 */
 let pageSections = document.querySelectorAll('section');
 let navbarList = document.querySelector('#navbar__list');
+let menuFragment = document.createDocumentFragment();
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+
+// Build the menu item
+function buildMenuItem(i) {
+    let listItem = document.createElement('li');
+    let anchorItem = document.createElement('a');
+    let anchorID = pageSections[i].getAttribute('id');
+    anchorItem.setAttribute('href', '#' + anchorID);
+    anchorItem.setAttribute('class', 'menu__link');
+    listItem.textContent = pageSections[i].getAttribute('data-nav');
+    anchorItem.appendChild(listItem);
+    menuFragment.appendChild(anchorItem);
+}
+
+// Build the navbar
 function createNavBar() {
-    let menuFragment = document.createDocumentFragment();
     for (let i = 0; i < pageSections.length; i++) {
-        let listItem = document.createElement('li');
-        let anchorItem = document.createElement('a');
-        let anchorID = pageSections[i].getAttribute('id');
-        anchorItem.setAttribute('href', '#' + anchorID);
-        anchorItem.setAttribute('class', 'menu__link');
-        listItem.textContent = pageSections[i].getAttribute('data-nav');
-        anchorItem.appendChild(listItem)
-        menuFragment.appendChild(anchorItem);
+        buildMenuItem(i);
     }
     navbarList.appendChild(menuFragment);
 }
 
+// Remove a previous active section
 function removeCurrentActiveSection() {
     for (let i = 0; i < pageSections.length; i++) {
         pageSections[i].removeAttribute('class');
     }
 }
 
+// Remove a previous active menu link
 function removeCurrentActiveLink() {
     let navbarItems = document.querySelectorAll('a');
     for (let i = 0; i < navbarItems.length; i++) {
@@ -53,10 +62,13 @@ function removeCurrentActiveLink() {
     }
 }
 
+// Get ID string
 function getElementID(str) {
     return str.slice(1);
 }
 
+
+// Set current section as active
 function sectionActive(str) {
     for (let i = 0; i < pageSections.length; i++) {
         if (pageSections[i].getAttribute('id') === str) {
@@ -66,6 +78,7 @@ function sectionActive(str) {
     }
 }
 
+// Set current menu link as active
 function activeLink() {
     let navbarItems = document.querySelectorAll('a');
     let activeID = '';
@@ -88,16 +101,8 @@ function activeLink() {
  *
 */
 
-// build the nav
+// build the navbar
 createNavBar();
-
-
-// Add class 'active' to section when near top of viewport
-
-
-
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
@@ -105,21 +110,17 @@ createNavBar();
  *
 */
 
-// Build menu
-
-
-// Scroll to section on link click
-
 // Set sections as active on menu click
 let sectionLinks = document.querySelectorAll('a');
 for (let i = 0; i < sectionLinks.length; i++) {
     sectionLinks[i].addEventListener('click', function (evt) {
         let idOfLink = getElementID(evt.currentTarget.getAttribute('href'));
+        removeCurrentActiveLink();
         sectionActive(idOfLink);
     });
 }
 
-// Set sections as active when scroll to view
+// Add class 'active' to section when near top of viewport
 for (let i = 0; i < pageSections.length; i++) {
     window.addEventListener('scroll', function () {
         if (pageSections[i].getBoundingClientRect().top <= 300 && pageSections[i].getBoundingClientRect().top >= -380) {
