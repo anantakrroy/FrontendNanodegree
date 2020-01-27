@@ -2,12 +2,14 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [About the page](#about)
 
-## Instructions
+## About
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* The project is built upon the starter code provided in the project repo.
+* The web page is divided into four sections. 
+* On top of the webpage is a dynamically generated menu with links for each of the sections. 
+* The links convey information about current active section when the user scrolls through the page. 
+* The links also take the user to the particular section when clicked.
+* The active sections have different styling compared to other sections.
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
