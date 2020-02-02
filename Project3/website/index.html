@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Journal</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="holder headline">
+      Weather Journal App
+    </div>
+    <div class="holder content">
+      <div class="holder zip">
+        <label for="zip">Enter Zipcode here</label>
+        <input type="text" id="zip" placeholder="Enter zip code here">
+      </div>
+      <div class="holder country">
+        <label for="country">Enter country</label>
+        <input type="text" id="country" placeholder="Enter country here">
+      </div>
+      <div class="holder feel">
+        <label for="feelings">How are you feeling today?</label>
+        <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="5" cols="38"></textarea>
+      </div>
+      <div class="btn">
+        <button id="generate" type="submit"> Generate </button>
+      </div>
+      <div class="holder entry">
+        <div class="title">Most Recent Entry</div>
+        <hr>
+        <div id="entryHolder">
+          <div>Weather as on : <span id="date"></span></div>
+          <div>Current Temperature : <span id="temp"></span></div>
+          <div>Location : <span id="location"></span></div>
+          <div id="content">
+            <p>Weather conditions : <span id="weather"></span></p>
+            <p id="wind">Winds:
+              <span id="speed"></span>
+              <span id="direction"></span>
+            </p>
+            <p>Seems like you feel this way in this weather: <span id="feeling"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <script src="app.js" type="text/javascript"></script>
+
+</body>
+
+</html>
