@@ -11,7 +11,7 @@ export function handleSubmit(event) {
             return res.json()
         })
         .then(function (data) {
-            document.getElementById('results').innerHTML = data.main.temp
+            document.getElementById('results').innerHTML = (data.main.temp - 273).toFixed(2);
         })
 }
 
