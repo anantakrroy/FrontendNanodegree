@@ -9,33 +9,65 @@
 <body>
 
     <header>
-        <div class="">
-            Logo
+        <div class="brandText">
+            Texalyser
         </div>
-        <div class="">
-            navigation
+        <div class="brandTag">
+            The science of what you READ
         </div>
     </header>
 
     <main>
-        <section>
-            <form class="" onsubmit="return Client.handleSubmit(event)">
-                <input id="name" type="text" name="input" value="" placeholder="Name">
-                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return Client.handleSubmit(event)">
-            </form>
-            <section>
-
-                <section>
-                    <strong>Form Results:</strong>
-                    <div id="results"></div>
-                </section>
+        <section class="formInput">
+            <div class="inputUrl">
+                <input id="urlString" type="text" name="input" value="" placeholder="Enter article url to analyze">
+                <p id="errorText"></p>
+            </div>
+            <div class="inputBtns">
+                <form class="" onsubmit="return Client.handleClassify(event)">
+                    <input type="submit" name="" value="Classify URL" onclick="return Client.handleClassify(event)"
+                        onsubmit="return Client.handleClassify(event)">
+                </form>
+                <form class="" onsubmit="return Client.handleSentiment(event)">
+                    <input type="submit" name="" value="Sentiment Analysis"
+                        onclick="return Client.handleSentiment(event)" onsubmit="return Client.handleSentiment(event)">
+                </form>
+                <form class="" onsubmit="return Client.handleSummary(event)">
+                    <input type="submit" name="" value="Summarise" onclick="return Client.handleSummary(event)"
+                        onsubmit="return Client.handleSummary(event)">
+                </form>
+                <form class="" onsubmit="return Client.handleHashtags(event)">
+                    <input type="submit" name="" value="Suggest Hashtags" onclick="return Client.handleHashtags(event)"
+                        onsubmit="return Client.handleHashtags(event)">
+                </form>
+            </div>
+        </section>
+        <section class="fetchAlert">
+            <p>Fetching results...</p>
+        </section>
+        <section class="formResult">
+            <div>
+                <strong>Form Results:</strong>
+            </div>
+            <div id="results">
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>This is a footer</p>
+        <p>This app is made possible by <a href="https://docs.aylien.com/">Aylien</a> </p>
     </footer>
 
+    <!-- Register service worker -->
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-// Setup environment variables
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -11,8 +10,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 var AYLIENTextAPI = require('aylien_textapi')
-const mockAPIResponse = require('./mockAPI.js')
-
 
 // Set Aylien credentials
 var textapi = new AYLIENTextAPI({
@@ -20,10 +17,12 @@ var textapi = new AYLIENTextAPI({
     application_key: process.env.API_KEY
 })
 
+
+// Instantiate express app
+const app = express()
+
 // Use cors
 app.use(cors())
-
-const app = express()
 
 app.use(express.static('dist'))
 
@@ -34,29 +33,76 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html', { root: 'dist' })
+    res.sendFile('index.html', { root: '../../src/client/views' })
 })
 
-app.post('/classify', handleAPIData)
-
-function handleAPIData(req, res) {
+// Classify Article route
+app.post('/classifyArticle', function (req, res) {
+    console.log('REQUEST BODY URL >>>>>>>> ', req.body.url)
     textapi.classify({
-        'url': req.body.text
-    }, (err, response) => {
-        if (err) {
-            res.send(err)
+        url: req.body.url
+    }, function (error, response) {
+        if (error) {
+            console.log('ERROR >>>>>> ', error)
+            res.send(error)
+        } else {
+            console.log('RESPONSE >>>>>> ', response)
+            res.send(response)
         }
-        res.send(response)
-    })
-}
+    });
+})
+
+// Sentiment Analysis route
+app.post('/sentimentOfArticle', function (req, res) {
+    console.log('REQUEST BODY URL >>>>>>>> ', req.body.url)
+    textapi.sentiment({
+        url: req.body.url,
+        mode: 'document'
+    }, function (error, response) {
+        if (error) {
+            console.log('ERROR >>>>>> ', error)
+            res.send(error)
+        } else {
+            console.log('RESPONSE >>>>>> ', response)
+            res.send(response)
+        }
+    });
+})
+
+// Article summary route
+app.post('/summariseArticle', function (req, res) {
+    console.log('REQUEST BODY URL >>>>>>>> ', req.body.url)
+    textapi.summarize({
+        url: req.body.url,
+        sentences_number: 3
+    }, function (error, response) {
+        if (error) {
+            console.log('ERROR >>>>>> ', error)
+            res.send(error)
+        } else {
+            console.log('RESPONSE >>>>>> ', response)
+            res.send(response)
+        }
+    });
+})
+
+// Article hashtags route
+app.post('/hashtagArticle', function (req, res) {
+    console.log('REQUEST BODY URL >>>>>>>> ', req.body.url)
+    textapi.hashtags({
+        url: req.body.url,
+    }, function (error, response) {
+        if (error) {
+            console.log('ERROR >>>>>> ', error)
+            res.send(error)
+        } else {
+            console.log('RESPONSE >>>>>> ', response)
+            res.send(response)
+        }
+    });
+})
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
 })
-
-// mock api get
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
-

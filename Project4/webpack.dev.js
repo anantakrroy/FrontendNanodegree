@@ -12,6 +12,13 @@ module.exports = {
         libraryTarget: 'var',
         library: 'Client'
     },
+    devServer: {
+        setup(app) {
+            app.post('*', (req, res) => {
+                res.redirect(req.originalUrl);
+            });
+        },
+    },
     module: {
         rules: [
             {

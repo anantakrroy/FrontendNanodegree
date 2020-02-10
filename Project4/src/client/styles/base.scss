@@ -1,7 +1,16 @@
+header {
+    margin: 5%;
+    padding: 30px;
+    font-size: 36px;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.288);
+    overflow-x: hidden;
 }
 
 main {
@@ -9,6 +18,63 @@ main {
 }
 
 section {
-    max-width: 800px;
-    margin: 50px auto;
+    width: 100%;
+    margin: auto;
+}
+
+section.formInput {
+    padding: 5%;
+    margin: 5px;
+}
+
+.inputBtns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section.fetchAlert {
+    display: none;
+    margin: 0 auto;
+}
+
+section.formResult {
+    padding: 10px;
+    margin: 5px;
+}
+
+p {
+    padding: 10px;
+}
+
+.inputUrl {
+    display: block;
+}
+
+#urlString {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+}
+
+strong {
+    font-size: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+strong.item {
+    font-size: 1em;
+}
+
+#errorText {
+    color: rgb(116, 21, 21);
+}
+
+#results {
+    padding: 20px 10px;
+}
+
+#emptyCategory {
+    font-size: 18px;
+    color: rgb(128, 51, 16);
 }
