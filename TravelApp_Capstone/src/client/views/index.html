@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel Planner</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="titleHeader">
+                <h1>Travel Planner</h1>
+                <div id="loader">
+                    <img src="http://css-tricks.com/examples/PageLoadLightBox/loader.gif" alt="loader">
+                </div>
+            </header>
+            <main class="mainArea">
+                <div class="cityImage">
+                    <img id="cityImg" />
+                </div>
+                <div class="cityInformation">
+                    <p class="text-bold">My trip to: <span id="departingLocation">Paris, France</span></p>
+                    <p class="text-bold">Departing: <span id="departingDate">02/12/2020</span></p>
+                    <p class="text-bold">Trip Length: <span id="tripLength"></span></p>
+                    <div class="buttonBox">
+                        <button class="saveTripButton">Save trip</button>
+                        <button class="removeTripButton">Remove trip</button>
+                    </div>
+                    <p><span id="mainLocation">Paris, France</span> is <span id="timeSpan">220 days away</span></p>
+                    <p>Typical weather for then is:</p>
+                    <p><small>High: <span id="high">46</span>, Low: <span id="low">35</span></small></p>
+                    <p><small id="summary">Mostly cloudy throughout the day.</small></p>
+                </div>
+                <div class="formInformation">
+                    <div class="cityInput">
+                        <div class="dataInput">
+                            <span class="text-bold">My trip to:</span>
+                            <input type="text" id="place" placeholder="eg. Paris" class="inputStyle"/>
+                        </div>
+                        <div class="dataInput">
+                            <span class="text-bold">Departing:</span>
+                            <input type="text" id="date" placeholder="MM/DD/YYYY" class="inputStyle"/>
+                        </div>
+                        <div class="dataInput">
+                            <span class="text-bold">End Date:</span>
+                            <input type="text" id="endDate" placeholder="MM/DD/YYYY" class="inputStyle"/>
+                        </div>
+                        
+                        <!-- <button>Get Weather Information</button> -->
+                        <input id="getWeather" type="submit" name="Get Weather Information" value="Get Trip Info" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </body>
+</html>

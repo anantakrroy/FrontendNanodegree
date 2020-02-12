@@ -1,0 +1,167 @@
+body {
+    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    margin: auto;
+    grid-template-columns: 400px auto;
+    grid-template-areas: 
+    "titleHeader titleHeader"
+    "mainArea mainArea";
+}
+
+.titleHeader {
+    grid-area: titleHeader;
+    margin: 0 auto;
+    background-color: rgb(72, 72, 204);
+    color: white;
+    padding: 0 38%;
+}
+
+.mainArea {
+    grid-area: mainArea;
+    padding: 15px;
+    background: #9cf7eb;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-template-rows: 50vh 50vh;
+    column-gap: 10px;
+    row-gap: 1vh;
+    grid-template-areas: 
+    "cityImage cityInformation"
+    "formInformation formInformation";
+    
+}
+
+.cityImage {
+    grid-area: cityImage;
+    display: flex;
+    justify-content:center;
+    overflow:hidden;
+    width:100%;
+}
+
+.cityInformation {
+    grid-area: cityInformation;
+}
+
+.formInformation {
+    grid-area: formInformation;
+}
+
+img#cityImg {
+    max-height: 100%;
+}
+
+.text-bold {
+    font-weight: 900;
+    margin-top: 0px;
+}
+
+.buttonBox {
+    display: inline;
+    color: white;
+}
+
+.buttonBox > button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+.saveTripButton {
+    background-color: white;
+    color: black;
+    height: 30px;
+    border: 2px solid #000;
+    margin: 0 10px;
+}
+
+.removeTripButton {
+    background-color: #db535a;
+    color: black;
+    height: 30px;
+    border: 2px solid #fff;
+    margin: 0 10px;
+}
+
+.dataInput {
+    margin: 20px 30%;
+}
+
+.inputStyle {
+    border-radius: 5px;
+    height: 25px;
+    width: 80%;
+    border: solid 1px grey;
+    padding: 5px;
+}
+
+input[type=submit] {
+    background-color: fff;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 20px 37%;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+#loader {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        display: grid;
+        width: 80%;
+        margin: auto;
+        grid-template-areas: 
+        "titleHeader"
+        "mainArea";
+    
+        justify-content: center;
+    }
+
+    .mainArea {
+        grid-area: mainArea;
+        padding: 8px;
+        background: #9cf7eb;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 350px 250px;
+        row-gap: 20px;
+        grid-template-areas: 
+        "cityImage"
+        "cityInformation"
+        "formInformation";
+    }
+
+    .cityImage {
+        grid-area: cityImage;
+    }
+
+    .cityInformation {
+        grid-area: cityInformation;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buttonBox {
+        display: flex;
+        width: 70%;
+        height: 60px;
+    }
+
+    .buttonBox > button:hover {
+        cursor: pointer;
+        color: white;
+        background-color: black;
+    }
+}
