@@ -66,12 +66,12 @@ app.post('/getWeather', async (req, res, next) => {
     var dateLiterals2 = endDate.split("/");
 
     let year = dateLiterals[2];
-    let month = dateLiterals[0];
-    let day = dateLiterals[1];
+    let month = dateLiterals[1];
+    let day = dateLiterals[0];
 
     let endYear = dateLiterals2[2];
-    let endMonth = dateLiterals2[0];
-    let endDay = dateLiterals2[1];
+    let endMonth = dateLiterals2[1];
+    let endDay = dateLiterals2[0];
 
     //Convert month to number and subtract one
     let monthInNum = parseInt(month);
@@ -106,6 +106,8 @@ app.post('/getWeather', async (req, res, next) => {
         daysToTrip = 'today';
     }
 
+    console.log('Remaining days >>>> ', daysToTrip)
+
     // Calculate trip duration
     const tripDifference = Math.abs(tripFinalDate - target);
     const tripDifferenceDays = Math.ceil(tripDifference / (1000 * 60 * 60 * 24));
@@ -123,10 +125,9 @@ app.post('/getWeather', async (req, res, next) => {
             .options({
                 latitude,
                 longitude,
-                time: theTime
             })
             .get()
-
+        
         summary = forecast.currently.summary;
         high = forecast.daily.data[0].temperatureHigh;
         low = forecast.daily.data[0].temperatureLow;

@@ -17,7 +17,7 @@ function handleSubmit(event) {
       let baseURL = 'http://api.geonames.org/searchJSON?style=full&maxRows=12&name_startsWith=';
       let location = formText;
       let theDepartureDate = departureDate;
-      const username = '&username=Samseen';
+      const username = '&username=akr78';
 
       let reqBody = {
           theText: formText
@@ -56,6 +56,8 @@ function handleSubmit(event) {
               date: departureDate,
               endDate: theFinalTripDate
           }
+
+          console.log('Request body >>>>>', reqBody)
 
           // Call the server to get the weather data
 
