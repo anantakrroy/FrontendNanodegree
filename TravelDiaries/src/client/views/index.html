@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Diaries</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-heading">
+            <h1 class="brand">Travel Diaries</h1>
+            <h5 class="tagline">Planning trips made easier</h5>
+        </div>
+        <h4 class="nav-user">My Account</h4>
+    </header>
+    <section class="user-input">
+        <form onsubmit="return Client.handleSubmit(event)">
+            <div class="tripName">
+                <label for="tripName">Name your trip</label>
+                <input type="text" placeholder="eg. Friends trip">
+            </div>
+            <div class="tripDestination">
+                <label for="tripDestination">Destination</label>
+                <input type="text" placeholder="eg. Shillong">
+            </div>
+            <div class="fromDate">
+                <label for="fromDate">From</label>
+                <input type="date" min="2020-02-17" max="2025-02-17">
+            </div>
+            <div class="toDate">
+                <label for="toDate">To</label>
+                <input type="date" min="2020-02-18" max="2025-02-18">
+            </div>
+            <input type="submit" id="submitBtn" onclick="return Client.handleSubmit(event)">
+        </form>
+    </section>
+    <section class="destination-info">
+        <div class="destImage"></div>
+        <div class="destDetails">
+            <article>
+                No trips found!
+            </article>
+        </div>
+    </section>
+    <footer>
+        <p>©Travel Diaries</p>
+    </footer>
+</body>
+
+</html>

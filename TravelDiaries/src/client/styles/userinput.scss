@@ -1,0 +1,20 @@
+.user-input {
+    padding: 10% 5px;
+}
+
+.tripName, .tripDestination, .fromDate, .toDate {
+    display: grid;
+}
+
+#submitBtn {
+    background-color: rgba(14, 151, 55, 0.836);
+    color: white;
+    border-radius: 4px;
+    width: 10%;
+    height: 40px;
+    border: none;
+}
+
+label {
+    padding: 10px 0;
+}

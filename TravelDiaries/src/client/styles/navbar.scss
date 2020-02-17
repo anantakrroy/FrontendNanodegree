@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: solid 1px blueviolet;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px blueviolet;
+}
+
+.nav-heading {
+    display: grid;
+    flex : 3;
+    justify-content: center;
+}
+
+.brand, .tagline {
+    margin: 0 auto;
+}
+
+.nav-logo {
+    flex: 1
+}
+
+.nav-user {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
