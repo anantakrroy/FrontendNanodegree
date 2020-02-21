@@ -1,0 +1,21 @@
+.destination-info {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 75%;
+    padding: 30px;
+}
+
+.destDetails {
+    margin: 0 auto;
+}
+
+.default-img, .dest-img {
+    width: 280;
+    height: 100%;
+    padding: 2%;
+    border: solid 2px white;
+}
+
+.dest-name h1 {
+    font-size: 2em;
+}

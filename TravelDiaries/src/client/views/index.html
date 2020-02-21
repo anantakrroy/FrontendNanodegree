@@ -19,29 +19,36 @@
         <form onsubmit="return Client.handleSubmit(event)">
             <div class="tripName">
                 <label for="tripName">Name your trip</label>
-                <input type="text" placeholder="eg. Friends trip">
+                <input type="text" placeholder="eg. Friends trip" id="trip-name">
             </div>
             <div class="tripDestination">
                 <label for="tripDestination">Destination</label>
-                <input type="text" placeholder="eg. Shillong">
+                <input type="text" placeholder="eg. Shillong" id="trip-dest">
             </div>
             <div class="fromDate">
                 <label for="fromDate">From</label>
-                <input type="date" min="2020-02-17" max="2025-02-17">
+                <input type="date" min="2020-02-17" max="2025-02-17" id="start-date">
             </div>
             <div class="toDate">
                 <label for="toDate">To</label>
-                <input type="date" min="2020-02-18" max="2025-02-18">
+                <input type="date" min="2020-02-18" max="2025-02-18" id="end-date">
             </div>
-            <input type="submit" id="submitBtn" onclick="return Client.handleSubmit(event)">
+            <input type="submit" id="submitBtn" value="Go Travel" onclick="return Client.handleSubmit(event)"
+                onsubmit="return Client.handleSubmit(event)">
         </form>
     </section>
     <section class="destination-info">
-        <div class="destImage"></div>
+        <div class="spinner" style="display: none;"></div>
+        <div class="destImage">
+        </div>
         <div class="destDetails">
-            <article>
-                No trips found!
+            <article class="no-trip">
+                <h1>No trips found!</h1>
             </article>
+            <article class="dest-name"></article>
+            <article class="dest-daysLeft"></article>
+            <article class="dest-daysTrip"></article>
+            <article class="dest-forecast"></article>
         </div>
     </section>
     <footer>
